@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Cursor Handler - A-Frame School</title>
+    <meta name="description" content="Cursor Handler - A-Frame School">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/v0.1.8/dist/aframe-orbit-controls-component.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <a-sky src="#sky"></a-sky>
+            <a-asset-item id="sun-obj" src="obj/sun/model.obj"></a-asset-item>
+            <a-asset-item id="sun-mtl" src="obj/sun/materials.mtl"></a-asset-item>
+            <a-asset-item id="cloud-obj" src="obj/cloud/model.obj"></a-asset-item>
+            <a-asset-item id="cloud-mtl" src="obj/cloud/materials.mtl"></a-asset-item>
+            <a-asset-item id="trees-obj" src="obj/tree/model.obj"></a-asset-item>
+            <a-asset-item id="trees-mtl" src="obj/tree/materials.mtl"></a-asset-item>
+            <a-asset-item id="item-obj-road" src="obj/road/old road.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-road" src="obj/road/old road.mtl"></a-asset-item>
+
+            <a-asset-item id="tree-obj" src="obj/ExhibitionCenter.obj"></a-asset-item>
+            <a-asset-item id="tree-mtl" src="obj/ExhibitionCenter.mtl"></a-asset-item>
+            <a-asset-item id="item-obj-85" src="obj/85/Building85.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-85" src="obj/85/Building85.mtl"></a-asset-item>
+            <a-asset-item id="item-obj-mld" src="obj/mld/MLD_V02.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-mld" src="obj/mld/MLD_V02.mtl"></a-asset-item>
+
+            <a-asset-item id="item-obj-csc" src="obj/csc/BuildingCSC.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-csc" src="obj/csc/BuildingCSC.mtl"></a-asset-item>
+
+            <a-asset-item id="item-obj-Library" src="obj/Library/Library.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-Library" src="obj/Library/Library.mtl"></a-asset-item>
+
+            <a-asset-item id="item-obj-KLRT" src="obj/KLRT/KLRT.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-KLRT" src="obj/KLRT/KLRT.mtl"></a-asset-item>
+
+            <a-asset-item id="item-obj-target" src="obj/target/target.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-target" src="obj/target/target.mtl"></a-asset-item>
+
+
+            <a-asset-item id="item-obj-Logo" src="obj/Logo/Logo.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-Logo" src="obj/Logo/Logo.mtl"></a-asset-item>
+
+            <a-asset-item id="item-obj-KSPA" src="obj/KSP/KSP_BldgA.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-KSPA" src="obj/KSP/KSP_BldgA.mtl"></a-asset-item>
+
+            <a-asset-item id="item-obj-KSPB" src="obj/KSP/KSP_BldgB.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-KSPB" src="obj/KSP/KSP_BldgB.mtl"></a-asset-item>
+
+            <a-asset-item id="item-obj-KSPC" src="obj/KSP/KSP_BldgC.obj"></a-asset-item>
+            <a-asset-item id="item-mtl-KSPC" src="obj/KSP/KSP_BldgC.mtl"></a-asset-item>
+
+            <img id="rock" src="textures/rock.jpg">
+            <img id="road" src="textures/road.jpg">
+            <img id="rail" src="textures/rail.jpg">
+        </a-assets>
+        <a-entity>
+            <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="300000" fill="forwards" repeat="indefinite" easing="linear">
+            </a-animation>
+            <a-entity obj-model="obj: #cloud-obj; mtl: #cloud-mtl" scale="100 100 100" rotation="0 360 0" position="-26 42 3" handle-events
+                alt="雲朵"></a-entity>
+
+            <a-entity obj-model="obj: #cloud-obj; mtl: #cloud-mtl" scale="100 100 100" rotation="0 180 0" position="52 42 -23" handle-events
+                alt="雲朵"></a-entity>
+        </a-entity>
+
+        <a-entity id="sun" obj-model="obj: #sun-obj; mtl: #sun-mtl" scale="28 28 28" rotation="0 0 0" position="49 130 -167" handle-events
+            alt="太陽公公出來惹~">
+            <a-animation attribute="rotation" from="180 0 0" to="0 360 0" dur="100000" fill="forwards" repeat="indefinite" easing="linear">
+            </a-animation>
+
+        </a-entity>
+        <!-- <a-sky src="images/sky.jpg" rotation="0 0 0"></a-sky> -->
+        <a-cylinder color="#a7ea97" height="3" radius="1.5" position="0 -3 0" scale="40 2 40"></a-cylinder>
+        <!-- <a-plane src="#rock" repeat="30 30" color="gray" position="0 0 0 " rotation="270 0 0 " geometry="height:80;width:80"></a-plane> -->
+        <!-- <a-plane src="#road" repeat="30 2" color="gray" position="0.9 0.1 3.6 " rotation="270 0 0 " geometry="height:5;width:115"></a-plane> -->
+        <a-plane repeat="30 2" color="gray" position="0.9 0.1 3.6 " rotation="270 0 0 " geometry="height:5;width:115"></a-plane>
+        <a-plane repeat="30 2" color="gray" position="0.9 0.1 3.6 " rotation="270 0 90 " geometry="height:5;width:115"></a-plane>
+        <a-plane src="#rail" repeat="30 1" position="-1.5 0.2 3.6 " rotation="270 0 90 " geometry="height:1;width:115" handle-events
+            alt="輕軌"></a-plane>
+        <a-entity obj-model="obj: #trees-obj; mtl: #trees-mtl" scale="1 1 1" rotation="0 0 0" position="4.8 1.9 -8"></a-entity>
+        <a-entity obj-model="obj: #item-obj-KSPC; mtl: #item-mtl-KSPC" scale="0.020 0.020 0.020" rotation="0 180 0" position="-1 0 8.8"
+            handle-events alt="高雄軟體園區B棟"></a-entity>
+        <a-entity obj-model="obj: #item-obj-KSPB; mtl: #item-mtl-KSPB" scale="0.020 0.020 0.020" rotation="0 180 0" position="-2.9 0 9.2
+        " handle-events alt="高雄軟體園區C棟"></a-entity>
+        <a-entity obj-model="obj: #item-obj-KSPA; mtl: #item-mtl-KSPA" scale="0.020 0.020 0.020" rotation="0 180 0" position="-5 0 10"
+            handle-events alt="高雄軟體園區A棟"></a-entity>
+        <!-- logo -->
+        <!-- <a-entity obj-model="obj: #item-obj-Logo; mtl: #item-mtl-Logo" scale="1 1 1" rotation="0 0 0" position="18 0 18"></a-entity> -->
+        <!-- 補給點 -->
+        <!-- <a-entity obj-model="obj: #item-obj-target; mtl: #item-mtl-target" scale="1 1 1" rotation="0 0 0" position="-20 0 -20"></a-entity> -->
+        <a-entity obj-model="obj: #item-obj-KLRT; mtl: #item-mtl-KLRT" scale="0.02i 0.02 0.02" rotation="0 0 0" position="-1.4 0 54">
+            <a-animation delay="3000" attribute="position" from="-1.4 0 54" to="-1.4 0 -40" dur="10000" repeat="indefinite" Direction="alternate"
+                easing="linear">
+            </a-animation>
+        </a-entity>
+        <a-entity obj-model="obj: #item-obj-Library; mtl: #item-mtl-Library" scale="0.03 0.03 0.03" rotation="0 0 0" handle-events
+            alt="高雄市立圖書館總館" position="13.5 0 -8"></a-entity>
+        <a-entity obj-model="obj: #item-obj-csc; mtl: #item-mtl-csc" scale="0.03 0.03 0.03" rotation="0 0 0" position="7.48 -1 13.126"
+            handle-events alt="中鋼大樓"></a-entity>
+        <a-entity obj-model="obj: #item-obj-85; mtl: #item-mtl-85" scale="0.05 0.05 0.05" rotation="0 0 0" position="18 0 -24" handle-events
+            alt="85大樓"></a-entity>
+        <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.05 0.05 0.05" rotation="0 0 0" position="-10 0 -8" handle-events
+            alt="高雄展覽館"></a-entity>
+        <a-entity obj-model="obj: #item-obj-mld; mtl: #item-mtl-mld" alt="MLD" scale="0.015 0.015 0.015" rotation="0 0 0" position="7 0 33"
+            handle-events></a-entity>
+        <a-entity obj-model="obj: #item-obj-mld; mtl: #item-mtl-mld" scale="0.015 0.015 0.015" rotation="0 0 0" position="17.3 0 33"
+            handle-events alt="MLD"></a-entity>
+        <a-entity position="0 0 0">
+            <a-entity position="18 6 45" id="camera" rotation="0 0 0 " camera="fov: 40" mouse-cursor look-controls>
+                <a-cursor fuse="true" color="yellow" position="" rotation="" scale="0.5 0.5 0.5" visible="" material="" raycaster="" cursor=""
+                    geometry=""></a-cursor>
+            </a-entity>
+            <a-animation attribute="rotation" from="0 6 0" to="0 -360 0" dur="60000" fill="forwards" repeat="indefinite" easing="linear">
+            </a-animation>
+        </a-entity>
+
+        <a-assets>
+            <img id="sky" src="images/sky.jpg">
+        </a-assets>
+        <!-- <a-entity position="26.512 3.2 1.507" id="camera" rotation="-1 -259 0 " camera="fov: 70" mouse-cursor="" look-controls>
+            <a-animation attribute="position" from="26.512 3.2 1.507" to="11 2 1.5" dur="5000" fill="forwards" easing="linear">
+            </a-animation>
+            <a-animation attribute="position" from="11 2 1.5" to="11 2 11.5" dur="5000" delay="5000" fill="forwards" easing="linear">
+            </a-animation>
+        </a-entity> -->
+        <a-sky color="#00bfff"></a-sky>
+    </a-scene>
+    <div id="title"></div>
+    <style>
+        #title {
+            width: 200px;
+            height: 80px;
+            line-height: 80px;
+            background: rgba(0, 0, 0, 0.7);
+            bottom: 0;
+            position: fixed;
+            left: 50%;
+            margin-left: -100px;
+            border-radius: 10px 10px 0 0;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+    <script>
+        AFRAME.registerComponent('handle-events', {
+            init: function () {
+                var el = this.el; // <a-box>
+                el.addEventListener('mouseenter', function () {
+                    let str = el.getAttribute('alt');
+                    document.getElementById('title').textContent = str;
+
+                });
+                el.addEventListener('mouseleave', function () {
+                    el.setAttribute('color', '#EF2D5E');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
